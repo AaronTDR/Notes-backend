@@ -33,3 +33,16 @@ exports.getNote = async (req, res, next) => {
     next();
   }
 };
+
+//update note by ID
+exports.updateNote = async (req, res, next) => {
+  try {
+    const note = await Note.findOneAndUpdate({ _id: req.params.id }, req.body, {
+      new: true,
+    });
+    res.json(note);
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+};
