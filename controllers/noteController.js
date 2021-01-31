@@ -46,3 +46,14 @@ exports.updateNote = async (req, res, next) => {
     next();
   }
 };
+
+//delete note by ID
+exports.deleteNote = async (req, res, next) => {
+  try {
+    await Note.findOneAndDelete({ _id: req.params.id });
+    res.json({ message: "Reminder removed" });
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+};
