@@ -12,3 +12,14 @@ exports.newNote = async (req, res, next) => {
     next();
   }
 };
+
+//get all the reminders
+exports.getNotes = async (req, res, next) => {
+  try {
+    const notes = await Note.find({});
+    res.json(notes);
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+};
