@@ -5,11 +5,14 @@ const routes = require("./routes");
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/veterinaria", {
+mongoose.connect("mongodb://localhost/reminders", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
 });
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Enable routing
 app.use("/", routes);
