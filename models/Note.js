@@ -11,10 +11,6 @@ const notesSchema = new Schema({
     type: String,
     trim: true,
   },
-  time: {
-    type: String,
-    trim: true,
-  },
   date: {
     type: String,
     trim: true,

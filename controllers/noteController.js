@@ -34,7 +34,7 @@ exports.getNote = async (req, res, next) => {
   }
 };
 
-//update note by ID
+//update note
 exports.updateNote = async (req, res, next) => {
   try {
     const note = await Note.findOneAndUpdate({ _id: req.params.id }, req.body, {
