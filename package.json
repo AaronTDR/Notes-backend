@@ -4,7 +4,8 @@
   "description": "Backend en Mongo y Express",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Aaron Treviño Del Rio",
   "license": "ISC",

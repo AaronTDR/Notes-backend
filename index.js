@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const cors = require("cors");
+require("dotenv").config({ path: ".env" });
 
 const app = express();
 
@@ -22,7 +23,7 @@ const corsOptions = {
 app.use(cors());
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/reminders", {
+mongoose.connect(process.env.CONNECTION_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -34,6 +35,8 @@ app.use(express.urlencoded({ extended: true }));
 // Enable routing
 app.use("/", routes);
 
-app.listen(4000, () => {
-  console.log("server running ");
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port: ${PORT}`);
 });
